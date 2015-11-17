@@ -1,41 +1,43 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <base href="/">
+    <head>
+        <meta charset="UTF-8">
+        <base href="/">
 
-    <title>Reddit Post Suggestor</title>
+        <title>Reddit Post Suggestor</title>
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/css/app.min.css"> <!-- custom styles -->
-    <link rel="stylesheet" href="styles/css/simple-sidebar.css">
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/css/app.min.css"> <!-- custom styles -->
+        <link rel="stylesheet" href="styles/css/simple-sidebar.css">
 
-    <!-- Vendor Deps Files -->
-	<script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-	<!-- App Specific JS FILES -->
-    <script src="js/controllers/MainCtrl.js"></script>
-    <script src="js/services/redditServices.js"></script>
-    <script src="js/routes.js"></script>
-    <script src="js/app.js"></script>
-</head>
-<body ng-app="redditApp" ng-controller="MainController">
-	<div class="container">
-		<!-- HEADER -->
-		<nav class="navbar navbar-inverse">
-			<div class="navbar-header">
-			    <a class="navbar-brand" href="/">Reddit Tool</a>
-			</div>
+        <!-- Vendor Deps Files -->
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <!-- App Specific JS FILES -->
+        <script src="js/controllers/MainCtrl.js"></script>
+        <script src="js/services/redditServices.js"></script>
+        <script src="js/routes.js"></script>
+        <script src="js/app.js"></script>
+    </head>
 
-			<!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
-			<ul class="nav navbar-nav">
-			    <li><a href="/nerds">Nerds</a></li>
-			</ul>
-		</nav>
+    <body ng-app="redditApp" ng-controller="MainController">
+        <div class="container">
+            <!-- HEADER -->
+            <nav class="navbar navbar-inverse">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Reddit Tool</a>
+                </div>
 
-		<!-- Injected View -->
-		<div ng-view></div>
-	</div>
-</body>
+                <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+                <ul class="nav navbar-nav">
+                    <li><a href="/Suggest">Suggest</a></li>
+                </ul>
+            </nav>
+
+            <!-- Injected View -->
+            <div ng-view></div>
+        </div>
+    </body>
+
 </html>

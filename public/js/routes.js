@@ -10,6 +10,10 @@ app.config(['$routeProvider', '$locationProvider', function($routerProvider, $lo
         .when('/', {
             templateUrl: 'views/main.html',
             controller: 'MainController'
+        })
+        // All-else redirect to main route
+        .otherwise({
+        	redirectTo: '/'
         });
 
     $locationProvider.html5Mode(true);

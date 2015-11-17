@@ -8,8 +8,7 @@ var redditService = require('../libs/redditService');
 var analyzeLibs   = require('../libs/analyzeLibs');
 
 suggestRoute.post('/:subreddit', function (req, res) {
-	var subreddit = req.params.subreddit;
-    var requestUrl = config.subreditt + "/top.json?limit=100&t=month";
+    var subreddit = req.params.subreddit;
 
     request({
         url: 'https://www.reddit.com/r/' + subreddit + '.json',
