@@ -1,0 +1,42 @@
+{
+    "name": "reddittool",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "xo",
+        "start": "node server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "forestjs": "^1.0.0"
+    },
+    "dependencies": {
+        "body-parser": "^1.14.1",
+        "browser-sync": "^2.10.0",
+        "dotenv": "^1.2.0",
+        "express": "^4.13.3",
+        "gulp": "^3.9.0",
+        "gulp-clean": "^0.3.1",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^2.1.0",
+        "gulp-shell": "^0.5.1",
+        "gulp-uglify": "^1.5.1",
+        "random-forest-classifier": "^0.6.0",
+        "request": "^2.65.0",
+        "source-map-support": "^0.3.3"
+    },
+    "xo": {
+        "envs": [
+            "node"
+        ],
+        "space": 4,
+        "rules": {
+            "new-cap": 0
+        },
+        "ignore": [
+            "public/bower_components/**"
+        ]
+    }
+}
