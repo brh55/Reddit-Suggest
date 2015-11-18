@@ -3,7 +3,7 @@
     - Serves as a main feature of the app
  */
 
-angular.module('redditApp.suggest', ['chart.js', 'Reddit'])
+angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'ngAnimate'])
 
 .controller('suggestCtrl', function(RedditService, $scope) {
     var m = this.model = {
