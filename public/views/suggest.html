@@ -1,4 +1,4 @@
-<div class="alert alert-danger" ng-show="suggest.model.errorState" class="fade">
+<div class="alert alert-danger" ng-show="suggest.model.errorState">
     <strong>Subreddit Doesn't Exist!</strong>
 </div>
 
@@ -13,4 +13,7 @@
 </form>
 
 <h2 ng-show="suggest.model.chartReady">Average Scores Per Day</h2>
-<canvas id="bar" class="chart chart-bar" chart-data="suggest.model.averages.data" chart-labels="suggest.model.averages.labels" chart-series="suggest.model.averages.series"></canvas>
+<canvas id="bar" class="chart chart-bar" chart-data="suggest.model.averages.data" chart-labels="suggest.model.averages.labels" chart-series="suggest.model.averages.series" chart-legend="true"></canvas>
+
+
+<span ng-show="suggest.model.loading" us-spinner="{radius: 77, width: 4, length: 15, lines: 17}"></span>
