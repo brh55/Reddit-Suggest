@@ -23,10 +23,18 @@ suggestRoute.get('/:subreddit', function (req, res) {
         }
 
         if (!err && res.statusCode == 200) {
-      		var bodyJSON = JSON.parse(body);
-      		var meanResp = analyzeLibs.getAvgPerDay(bodyJSON.data.children);
+            var bodyJSON = JSON.parse(body);
 
-      		res.json(meanResp);
+            // If the Subreddit actually exist
+            if (bodyJSON.data.children.length > 1) {
+                var meanResp = analyzeLibs.getAvgPerDay(bodyJSON.data.children);
+
+                res.json(meanResp);
+            } else {
+                res.status(404)
+                    .send("Subreddit Doesn't Exist");
+            }
+
         }
     });
 });

@@ -2,7 +2,6 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 var shell       = require('gulp-shell');
-var clean       = require('gulp-clean');
 var rename      = require('gulp-rename');
 var uglify      = require('gulp-uglify');
 var reload      = browserSync.reload;

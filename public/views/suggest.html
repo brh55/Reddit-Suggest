@@ -1,1 +1,19 @@
-{{main.model}}
+<div class="alert alert-danger" ng-show="suggest.model.errorState">
+  <strong>Subreddit Doesn't Exist!</strong>
+</div>
+
+<form name="suggestForm" ng-submit="suggest.action.submitSearch()">
+    <label>
+        Subreddit:
+       <input type="text" name="subreddit" ng-model="suggest.model.subreddit" required>
+    </label>
+    <div role="alert">
+      <span class="error" ng-show="suggestForm.subreddit.$error.required">
+       Required!</span>
+    </div>
+
+    <input type="submit" id="submit" value="Submit" />
+</form>
+
+<h2 ng-show="suggest.model.chartReady">Average Scores Per Day</h2>
+<canvas id="bar" class="chart chart-bar" chart-data="suggest.model.averages.data" chart-labels="suggest.model.averages.labels" chart-series="suggest.model.averages.series"></canvas>

@@ -2,16 +2,16 @@
 	Reddit Service
  */
 
-var app = angular.module('RedditService', []);
+var app = angular.module('Reddit', []);
 
-app.factory('Reddit', ['$http', function ($http) {
+app.factory('RedditService', ['$http', function ($http) {
 	var action = {
-		getSuggest: function(subreddit, time) {
-			return $http.get('/api/suggest' + subreddit);
+		getSuggest: function(subreddit) {
+			return $http.get('/api/suggest/' + subreddit);
 		}
 	};
 
 	return {
 		getSuggest: action.getSuggest
-	}
-});
+	};
+}]);
