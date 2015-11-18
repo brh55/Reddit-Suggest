@@ -52,4 +52,11 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit'])
             m.chartReady = true;
         }
     };
+
+    // Listen for beginning new search
+    $scope.$watch(function() {
+        return m.subreddit;
+    }, function(newValue, oldValue) {
+        m.errorState = false;
+    });
 });
