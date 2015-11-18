@@ -9,8 +9,8 @@ var express         = require('express');
 var app             = express();
 var router          = express.Router();
 var bodyParser      = require('body-parser');
-var config          = require('./libs/config');
-var suggestRoute    = require('./routes/suggest');
+var config          = require('./server/libs/config');
+var suggestRoute    = require('./server/routes/suggest');
 
 /* Configurations */
 var port            = config.port;

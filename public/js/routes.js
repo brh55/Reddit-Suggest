@@ -8,8 +8,9 @@ app.config(['$routeProvider', '$locationProvider', function($routerProvider, $lo
     $routeProvider
         // '/' Main Route
         .when('/', {
-            templateUrl: 'views/main.html',
-            controller: 'MainController'
+            templateUrl: 'views/suggest.html',
+            controller: 'mainController',
+            controllerAs: 'main'
         })
         // All-else redirect to main route
         .otherwise({

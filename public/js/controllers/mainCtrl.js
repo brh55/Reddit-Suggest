@@ -5,6 +5,6 @@
 
 var app = angular.module('MainCtrl', []);
 
-app.controller('mainController', function($scope) {
-	
+app.controller('mainController', function() {
+    this.model = "hello";
 });
