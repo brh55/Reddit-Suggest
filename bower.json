@@ -31,6 +31,7 @@
     "angular-chart.js": "~0.8.5",
     "Chart.js": "~1.0.2",
     "angular-spinners": "~3.0.4",
-    "ngAnimate": "*"
+    "ngAnimate": "*",
+    "angular-spinner": "~0.8.0"
   }
 }
