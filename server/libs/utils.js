@@ -36,12 +36,29 @@ module.exports = (function () {
 			var time = stringDate.substring(16, 21);
 
 			return time;
+		},
+		/**
+		 * Rounds the time
+		 * @param  {[number]} epochDate [date format of epoch date]
+		 * @return {[string]}           [rounded time]
+		 */
+		roundTime: function (epochDate) {
+			var tempDate = new Date(epochDate);
+			var minutes = tempDate.getMinutes();
+		    var hours = tempDate.getHours();
+
+		    if (minutes > 30) {
+		        hours++;
+		    }
+
+		    return hours + ':00';
 		}
 	};
 
 	return {
 		convertEpoch: action.convertEpoch,
 		getWeekDay: action.getWeekDay,
-		getTime: action.getTime
+		getTime: action.getTime,
+		roundTime: action.roundTime
 	};
 })();

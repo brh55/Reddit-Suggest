@@ -10,13 +10,13 @@ var app             = express();
 var router          = express.Router();
 var bodyParser      = require('body-parser');
 var config          = require('./server/libs/config');
-var suggestRoute    = require('./server/routes/suggest');
+var statsRoute       = require('./server/routes/stats');
 
 /* Configurations */
 var port            = config.port;
 
 app.use(bodyParser.json());
-app.use('/api/suggest', suggestRoute);
+app.use('/api/stats', statsRoute);
 app.use(express.static(__dirname + '/public'));
 
 // Angular App Route, all routes -- web app

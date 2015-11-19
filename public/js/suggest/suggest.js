@@ -24,7 +24,7 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
             m.loading = true;
             m.prevSearch = m.subreddit;
 
-            RedditService.getSuggest(m.subreddit)
+            RedditService.getAvg(m.subreddit)
                 .success(function(res) {
                     // Update the model to push data into data set
                     a.updateAvgSet(res);
