@@ -1,41 +1,17 @@
 'use strict';
 
-var express       = require('express');
-var request       = require('request');
-var statsRoute    = express.Router();
-var config        = require('../libs/config');
-var redditService = require('../libs/redditService');
-var analyzeLibs   = require('../libs/analyzeLibs');
+var express          = require('express');
+var request          = require('request');
+var statsRoute       = express.Router();
+var config           = require('../libs/config');
+var analyzeService   = require('../libs/analyzeService');
 
 
 statsRoute.get('/avg/:subreddit', function (req, res) {
     var subreddit = req.params.subreddit;
 
-    request({
-        url: 'https://www.reddit.com/r/' + subreddit + '/top.json',
-        qs: {
-            limit: 100,
-            t: "month"
-        },
-        method: 'GET'
-    }, function(err, response, body) {
-        if (err) {
-            console.log(err);
-        }
-
-        if (!err && res.statusCode == 200) {
-            var bodyJSON = JSON.parse(body);
-
-            // If the Subreddit actually exist
-            if (bodyJSON.data.children.length > 1) {
-                var meanResp = analyzeLibs.getAvgPerDay(bodyJSON.data.children);
-
-                res.json(meanResp);
-            } else {
-                res.status(404)
-                    .send("Subreddit Doesn't Exist");
-            }
-        }
+    analyzeService.getAvgPerDay(subreddit, 100, "month", function(data) {
+        res.send(data);
     });
 });
 
@@ -44,31 +20,8 @@ statsRoute.get('/avg/:subreddit', function (req, res) {
 statsRoute.get('/:subreddit', function (req, res) {
     var subreddit = req.params.subreddit;
 
-    request({
-        url: 'https://www.reddit.com/r/' + subreddit + '/top.json',
-        qs: {
-            limit: 100,
-            t: "month"
-        },
-        method: 'GET'
-    }, function(err, response, body) {
-        if (err) {
-            console.log(err);
-        }
-
-        if (!err && res.statusCode == 200) {
-            var bodyJSON = JSON.parse(body);
-
-            // If the Subreddit actually exist
-            if (bodyJSON.data.children.length > 1) {
-                var statsResp = analyzeLibs.getStats(bodyJSON.data.children);
-
-                res.json(statsResp);
-            } else {
-                res.status(404)
-                    .send("Subreddit Doesn't Exist");
-            }
-        }
+    analyzeService.getStats(subreddit, 100, "month", function(data) {
+        res.send(data);
     });
 });
 

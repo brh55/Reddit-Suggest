@@ -43,7 +43,7 @@ module.exports = (function () {
 		 * @return {[string]}           [rounded time]
 		 */
 		roundTime: function (epochDate) {
-			var tempDate = new Date(epochDate);
+			var tempDate = new Date(epochDate * 1000);
 			var minutes = tempDate.getMinutes();
 		    var hours = tempDate.getHours();
 
