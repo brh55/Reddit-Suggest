@@ -20,6 +20,10 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
     };
 
     var a = this.action = {
+        /**
+         * Creates a GET request to API
+         * @return {[object]} [returns a JSON containing the weekly averages]
+         */
         submitSearch: function () {
             m.loading = true;
             m.prevSearch = m.subreddit;
@@ -37,6 +41,11 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
                     m.loading = false;
                 });
         },
+        /**
+         * Updates average score model for charts
+         * @param  {[object]} data [weekday averages dataset]
+         * @return {[void]}      [updates the models series and data.]
+         */
         updateAvgSet: function (data) {
             var keys = Object.keys(data);
             var len = keys.length;
@@ -50,6 +59,13 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
             m.averages.series.push(m.subreddit);
             m.averages.data.push(dataSet);
             m.chartReady = true;
+        },
+        /**
+         * Sets error false to dismiss any error messages
+         * @return {[void]}
+         */
+        setErrorFalse: function () {
+            m.errorState = false;
         }
     };
 

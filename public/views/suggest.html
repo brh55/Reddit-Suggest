@@ -1,19 +1,26 @@
-<div class="alert alert-danger" ng-show="suggest.model.errorState">
-    <strong>Subreddit Doesn't Exist!</strong>
+<div class="suggest-view">
+	<div class="alert alert-danger" ng-show="suggest.model.errorState">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" ng-click="suggest.action.setErrorFalse()">&times;</span></button>
+	    <strong>Subreddit Doesn't Exist!</strong>
+	</div>
+
+	<form name="suggestForm" ng-submit="suggest.action.submitSearch()">
+		<h2>When should I post on Reddit?</h2>
+	    <label>Subreddit:</label>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">/r/</span>
+			<input type="text" name="subreddit" ng-model="suggest.model.subreddit" required class="form-control" placeholder="subrredit" aria-describedby="basic-addon1">
+		</div>
+		<div role="alert">
+	        <span class="error" ng-show="suggestForm.subreddit.$error.required">Required!</span>
+	    </div>
+
+	    <input class="btn btn-info" type="submit" id="submit" value="Submit" />
+	</form>
+
+	<h2 ng-show="suggest.model.chartReady">Average Scores Per Day</h2>
+	<canvas id="bar" class="chart chart-bar" chart-data="suggest.model.averages.data" chart-labels="suggest.model.averages.labels" chart-series="suggest.model.averages.series" chart-legend="true"></canvas>
+
+
+	<span ng-show="suggest.model.loading" us-spinner="{radius: 77, width: 4, length: 15, lines: 17}"></span>
 </div>
-
-<form name="suggestForm" ng-submit="suggest.action.submitSearch()">
-    <label>Subreddit:</label>
-    <input type="text" name="subreddit" ng-model="suggest.model.subreddit" required>
-    <div role="alert">
-        <span class="error" ng-show="suggestForm.subreddit.$error.required">Required!</span>
-    </div>
-
-    <input type="submit" id="submit" value="Submit" />
-</form>
-
-<h2 ng-show="suggest.model.chartReady">Average Scores Per Day</h2>
-<canvas id="bar" class="chart chart-bar" chart-data="suggest.model.averages.data" chart-labels="suggest.model.averages.labels" chart-series="suggest.model.averages.series" chart-legend="true"></canvas>
-
-
-<span ng-show="suggest.model.loading" us-spinner="{radius: 77, width: 4, length: 15, lines: 17}"></span>

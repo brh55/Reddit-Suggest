@@ -32,22 +32,25 @@
     </head>
 
     <body ng-app="redditApp">
-        <div class="container">
-            <!-- HEADER -->
-            <nav class="navbar navbar-inverse">
+        <!-- Header -->
+        <nav class="navbar">
+            <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">Reddit Tool</a>
                 </div>
 
-                <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
                 <ul class="nav navbar-nav">
                     <li><a href="/suggest">Suggest</a></li>
                 </ul>
-            </nav>
+            </div>
+        </nav>
 
-            <!-- Injected View -->
-            <div ui-view></div>
-        </div>
+        <!-- Injected View -->
+        <main class="app-view">
+            <div class="container">
+                <div ui-view></div>
+            </div>
+        </main>
     </body>
 
 </html>

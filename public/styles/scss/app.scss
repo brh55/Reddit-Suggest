@@ -2,6 +2,11 @@
 @charset 'UTF-8';
 
 // Application Base Styles
+@import 'base/variables';
 @import 'base/base';
 @import 'base/animation';
 
+// Components Styles
+@import 'components/header';
+@import 'components/main';
+@import 'components/suggest';

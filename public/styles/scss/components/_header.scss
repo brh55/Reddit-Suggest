@@ -1,0 +1,32 @@
+/*
+Header Styles
+ */
+
+.navbar {
+	background-color: $blue;
+	border-radius: 0;
+	padding: 0;
+	margin-bottom: 0;
+	border-bottom: 0;
+
+	a {
+		color: white;
+	}
+
+	&-nav {
+		float: right;
+
+		a {
+			transition: all .3s ease;
+			border-bottom: 3px solid $blue;
+		}
+
+		li {
+			a:hover {
+				color: $orange;
+				background-color: $blue;
+				border-bottom: 3px solid $orange;
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+/**
+ * Suggest View
+ */
+
+.suggest-view {
+	.close {
+		line-height: 0;
+	}
+
+	.input-group-addon {
+		border: 0;
+		background-color: #d9edf7;
+		color: #41748e;
+	}
+
+	.form-control {
+		border: 1px solid #fff;
+		box-shadow: none;
+
+		&:focus {
+    		border: 1px solid #D9EDF7;
+    		box-shadow: none;
+		}
+	}
+}
