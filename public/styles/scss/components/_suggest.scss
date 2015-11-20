@@ -3,14 +3,27 @@
  */
 
 .suggest-view {
+	h3 {
+		border-bottom: 1px solid #DEDEDE;
+		padding-bottom: 1em;
+	}
+
 	.close {
 		line-height: 0;
+	}
+
+	.chart-titles {
+		text-align: center;
 	}
 
 	.input-group-addon {
 		border: 0;
 		background-color: #d9edf7;
 		color: #41748e;
+	}
+
+	.input-group {
+		margin-bottom: 1em;
 	}
 
 	.form-control {
@@ -20,6 +33,19 @@
 		&:focus {
     		border: 1px solid #D9EDF7;
     		box-shadow: none;
+		}
+	}
+
+	.charts {
+		h3 {
+			margin-bottom: 1em;
+		}
+	}
+
+	.best-post {
+		.post {
+			border-left: 3px solid #58C7FF;
+    		padding-left: 20px;
 		}
 	}
 }

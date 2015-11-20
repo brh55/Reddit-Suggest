@@ -5,7 +5,7 @@
 	</div>
 
 	<form name="suggestForm" ng-submit="suggest.action.submitSearch()">
-		<h2>When should I post on Reddit?</h2>
+		<h3>When should I post on Reddit?</h3>
 	    <label>Subreddit:</label>
 		<div class="input-group">
 			<span class="input-group-addon" id="basic-addon1">/r/</span>
@@ -18,9 +18,30 @@
 	    <input class="btn btn-info" type="submit" id="submit" value="Submit" />
 	</form>
 
-	<h2 ng-show="suggest.model.chartReady">Average Scores Per Day</h2>
-	<canvas id="bar" class="chart chart-bar" chart-data="suggest.model.averages.data" chart-labels="suggest.model.averages.labels" chart-series="suggest.model.averages.series" chart-legend="true"></canvas>
+	<section class="charts" ng-show="suggest.model.chartReady">
+		<h3>Charts</h3>
 
+		<div class="chart-titles">
+			<h4>Average Scores Per Day</h4>
+		</div>
+		<canvas id="bar" class="chart chart-bar" chart-data="suggest.model.dayAverages.data" chart-labels="suggest.model.dayAverages.labels" chart-series="suggest.model.series" chart-legend="true"></canvas>
 
+		<div class="chart-titles">
+			<h4>Average Score Per Hour of Top Post</h4>
+		</div>
+		<canvas id="line" class="chart chart-line" chart-data="suggest.model.timeAverages.data" chart-labels="suggest.model.timeAverages.labels" chart-legend="true" chart-series="suggest.model.series"></canvas>
+	</section>
+
+	<section class="best-post" ng-show="suggest.model.chartReady">
+		<h3>The highest post on /r/{{suggest.model.prevSearch}} this Month</h3>
+		<div class="post">
+			<h4><a ng-href="{{suggest.model.bestPost[0].url}}">{{suggest.model.bestPost[0].title}}</a></h4>
+			<p>Posted on {{suggest.model.bestPost[0].weekday}} at {{suggest.model.bestPost[0].hour}} UTC</p>
+			<p><i class="fa fa-arrow-up"></i>: {{suggest.model.bestPost[0].score}}</p>
+			<p><i class="fa fa-commenting-o"></i>: {{suggest.model.bestPost[0].commentCount}}</p>
+		</div>
+	</div>
+
+	</section>
 	<span ng-show="suggest.model.loading" us-spinner="{radius: 77, width: 4, length: 15, lines: 17}"></span>
 </div>

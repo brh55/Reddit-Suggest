@@ -9,7 +9,7 @@ app.factory('RedditService', ['$http', function ($http) {
         /**
          * Gets the Averages per Weekday
          * @param  {[string]} subreddit [the subreddit]
-         * @return {[object]}           [json response]
+         * @return {[object]}           [JSON response]
          */
 		getAvg: function(subreddit) {
 			return $http.get('/api/stats/avg/' + subreddit);
@@ -17,7 +17,7 @@ app.factory('RedditService', ['$http', function ($http) {
         /**
          * Get All Stats Regarding Subreddit
          * @param  {[string]} subreddit [the subreddit]
-         * @return {[object]}           [json response]
+         * @return {[object]}           [JSON response]
          */
         getStats: function(subreddit) {
             return $http.get('/api/stats/' + subreddit);
