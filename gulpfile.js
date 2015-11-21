@@ -1,10 +1,10 @@
-var gulp        = require('gulp');
+var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');
-var shell       = require('gulp-shell');
-var rename      = require('gulp-rename');
-var uglify      = require('gulp-uglify');
-var reload      = browserSync.reload;
+var sass = require('gulp-sass');
+var shell = require('gulp-shell');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
+var reload = browserSync.reload;
 
 // Task for easier development
 gulp.task('serve', ['sass'], function () {
@@ -14,10 +14,10 @@ gulp.task('serve', ['sass'], function () {
 
 // Compiling SASS, browserSync stream after compile
 gulp.task('sass', function () {
-    return gulp.src("public/styles/scss/app.scss")
+    return gulp.src('public/styles/scss/app.scss')
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest("public/styles/css"))
+        .pipe(gulp.dest('public/styles/css'))
         .pipe(browserSync.stream());
 });
 

@@ -5,7 +5,7 @@
 
 angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
 
-.controller('suggestCtrl', function(RedditService, $scope) {
+.controller('suggestCtrl', function (RedditService, $scope) {
     var m = this.model = {
         subreddit: '',
         prevSearch: '',
@@ -13,11 +13,11 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
         loading: false,
         dayAverages: {
             data: [],
-            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         },
         timeAverages: {
             data: [],
-            labels: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00' ]
+            labels: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00']
         },
         series: [],
         chartReady: false,
@@ -35,7 +35,7 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
             m.prevSearch = m.subreddit;
 
             RedditService.getStats(m.subreddit)
-                .success(function(res) {
+                .success(function (res) {
                     // Update the model to push data into data set
                     m.dayAverages.data.push(a.getAvgSet(res.averages.weekday));
                     m.timeAverages.data.push(a.getAvgSet(res.averages.time));
@@ -47,7 +47,7 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
                     m.loading = false;
                     m.chartReady = true;
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     m.errorState = true;
                 })
                 .finally(function () {
@@ -81,9 +81,9 @@ angular.module('redditApp.suggest', ['chart.js', 'Reddit', 'angularSpinner'])
     };
 
     // Listen for beginning new search
-    $scope.$watch(function() {
+    $scope.$watch(function () {
         return m.subreddit;
-    }, function(newValue, oldValue) {
+    }, function (newValue, oldValue) {
         m.errorState = false;
     });
 });

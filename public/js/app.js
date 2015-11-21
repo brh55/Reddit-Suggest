@@ -5,7 +5,7 @@ angular.module('redditApp', [
     'redditApp.suggest'
 ])
 
-.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise('/home');
     // Set up angular routes
